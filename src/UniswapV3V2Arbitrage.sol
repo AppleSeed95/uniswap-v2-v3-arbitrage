@@ -29,7 +29,13 @@ interface  IUniswapV2Pair  {
         )  external  returns  (int256  amount0,  int256  amount1);
 }
 
-
+interface  IUniswapV3SwapCallback  {
+        function  uniswapV3SwapCallback(
+                int256  amount0Delta,
+                int256  amount1Delta,
+                bytes  calldata  data
+        )  external;
+}
 
 contract  UniswapV3V2Arbitrage  is  Owned,  IUniswapV3SwapCallback  {
         IWETH  internal  constant  WETH  =  IWETH(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2);
